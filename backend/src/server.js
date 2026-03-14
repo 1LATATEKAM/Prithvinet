@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const { updateAllEnvironmentalData } = require('./services/dataFetcher');
@@ -37,6 +38,22 @@ app.use('/api/regional', require('./routes/regionalRoutes'));
 app.use('/api/monitoring', require('./routes/monitoringRoutes'));
 app.use('/api/public', require('./routes/publicRoutes'));
 app.use('/api/map', require('./routes/mapRoutes'));
+
+// Serve Static Files from Frontend
+const distPath = path.resolve(__dirname, '..', '..', 'frontend', 'dist');
+console.log('Serving frontend from:', distPath);
+app.use(express.static(distPath));
+
+// SPA Fallback: Serve index.html for all non-API routes
+// SPA Fallback: Serve index.html for all non-API routes
+app.use((req, res, next) => {
+  // If request is for an API route or a static file that wasn't found, let it pass through
+  if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+    return next();
+  }
+  // Otherwise, serve the frontend index.html for SPA routing
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 
 
 // Global Error Handler for Express
