@@ -1,0 +1,106 @@
+@import "tailwindcss";
+/* FORCED_STLYESHEET_REFRESH_V1 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@theme {
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-secondary: #3b82f6;
+  --color-secondary-dark: #2563eb;
+  --color-background-void: #060608;
+  --color-background-alt: #0a0a0c;
+  --color-text-main: #ffffff;
+  --color-text-muted: #94a3b8;
+  
+  --font-display-geometric: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-space: "Inter", sans-serif;
+  
+  --animate-fade-in: fadeIn 0.5s ease-out forwards;
+  --animate-spin-slow: spin 8s linear infinite;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+:root {
+  --primary: #10b981;
+  --secondary: #3b82f6;
+  --bg-dark: #060608;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #060608;
+  font-family: var(--font-body);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display-geometric) !important;
+  letter-spacing: -0.06em;
+  font-weight: 900;
+}
+
+/* Custom Marker Animations */
+.industry-marker {
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+}
+
+/* Smoke Particle CSS Animation */
+.smoke-particle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(100,100,100,0.8) 0%, rgba(100,100,100,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-up 3s ease-out infinite;
+  opacity: 0;
+}
+
+@keyframes float-up {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  20% { opacity: 0.6; }
+  100% { transform: translateY(-80px) scale(2); opacity: 0; }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Custom Utilities that might be missing */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
