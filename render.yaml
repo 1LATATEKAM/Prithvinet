@@ -23,7 +23,7 @@ services:
         sync: false # User must set in Render Dashboard
 
   # Frontend Static Site
-  - type: static
+  - type: web
     name: prithvinet-frontend
     env: static
     rootDir: frontend
