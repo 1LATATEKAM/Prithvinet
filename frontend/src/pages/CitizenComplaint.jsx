@@ -43,8 +43,9 @@ const CitizenComplaintForm = () => {
     // In a real app, use FormData for file uploads
     const dataToSend = { ...formData, evidence_count: files.length };
 
+    const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5002/api';
     try {
-      const response = await fetch('http://localhost:5002/api/complaints', {
+      const response = await fetch(`${API_BASE}/complaints`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -18,8 +18,9 @@ const PublicDashboard = () => {
   
   useEffect(() => {
     const fetchReadings = async () => {
+      const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5002/api';
       try {
-        const response = await axios.get('http://localhost:5002/api/pollution');
+        const response = await axios.get(`${API_BASE}/pollution`);
         setReadings(response.data.slice(0, 10));
       } catch (error) {
         console.error("Failed to fetch public readings", error);
