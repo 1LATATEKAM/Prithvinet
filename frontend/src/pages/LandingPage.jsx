@@ -91,12 +91,7 @@ const LandingPage = () => {
                     Explore Dashboard
                     <div className="w-4 h-0.5 bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                   </Link>
-                  <Link 
-                    to="/public"
-                    className="px-10 py-5 border border-white/20 hover:border-white/40 bg-white/5 backdrop-blur-3xl text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:-translate-y-1.5 transition-all"
-                  >
-                    Public Data View
-                  </Link>
+
                 </div>
               </motion.div>
             </div>
